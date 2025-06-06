@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
+<head>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Form Validation & Table Display</title>
-<style>
-  * {
+  <style>
+    * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -17,9 +17,9 @@ body {
   align-items: center;
   min-height: 100vh;
   padding: 20px;
-  font-family: Arial, sans-serif;
-  background-color: #f0f8ff; /* AliceBlue */
-  color: #2c3e50; /* dark blue-gray */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #f5deb3, #e3f2fd); /* Wheat to light blue gradient */
+  color: #0d47a1;
   flex-direction: column;
 }
 
@@ -27,236 +27,131 @@ body {
   max-width: 500px;
   width: 100%;
   margin: 0 auto;
-  background: #fff0f6; /* light pink */
+  background: #ffffff; /* Clean white card */
   padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(255, 182, 193, 0.5); /* pinkish shadow */
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
 form label {
-  color: #8e44ad; /* purple */
-  font-weight: bold;
+  color: #0d47a1;
+  font-weight: 600;
   display: block;
   margin-bottom: 5px;
 }
 
 form input {
   width: 100%;
-  padding: 10px;
-  margin-top: 2px;
-  border: 2px solid #3498db; /* bright blue border */
-  border-radius: 5px;
-  background-color: #eaf6ff; /* very light blue */
-  color: #34495e; /* dark slate */
+  padding: 12px;
+  margin-top: 5px;
+  border: 1px solid #c9b280; /* Wheat border */
+  border-radius: 6px;
+  background-color: #fffaf0; /* Light wheat background */
+  color: #0d47a1;
+  font-size: 1rem;
+  transition: border 0.3s ease;
 }
 
-.text-danger {
-  color: #e74c3c; /* bright red */
-  font-size: 0.85rem;
+form input:focus {
+  border-color: #f5c16c;
+  outline: none;
 }
 
 button {
-  background-color: #f39c12; /* orange */
-  color: #fff;
-  padding: 10px 15px;
+  background-color: #42a5f5; /* Blue button */
+  color: #ffffff;
+  padding: 12px 15px;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
   width: 100%;
   font-size: 1rem;
-  margin-top: 10px;
-  transition: background-color 0.3s ease;
+  margin-top: 12px;
+  transition: background 0.3s ease;
 }
 
 button:hover {
-  background-color: #d35400; /* darker orange */
-}
-
-button:focus, input:focus {
-  outline: 2px solid #f39c12;
-  outline-offset: 2px;
+  background-color: #1e88e5;
 }
 
 .table-wrapper {
   width: 100%;
   overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .table-wrapper table {
   min-width: 600px;
   border-collapse: collapse;
-  background-color: #dff9fb; /* light aqua */
-  color: #2c3e50;
+  background-color: #fffaf0; /* Wheat background for table */
+  color: #0d47a1;
   width: 100%;
-  border-radius: 8px;
+  border-radius: 6px;
   overflow: hidden;
 }
 
 table, th, td {
-  border: 1px solid #74b9ff; /* soft blue */
-}
-
-th, td {
-  padding: 12px;
-  text-align: center;
+  border: 1px solid #f5deb3;
 }
 
 th {
-  background-color: #6c5ce7; /* bright indigo */
+  background-color: #42a5f5;
   color: #ffffff;
+  padding: 14px;
+  text-transform: uppercase;
+}
+
+td {
+  padding: 12px;
+  text-align: center;
+  background-color: #ffffff;
 }
 
 .action-btn {
-  padding: 6px 10px;
+  padding: 8px 12px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   font-weight: bold;
-  transition: opacity 0.3s ease;
 }
 
 .edit-btn {
-  background-color: #27ae60; /* green */
+  background-color: #64b5f6; /* Soft blue */
   color: white;
-}
-
-.edit-btn:hover {
-  opacity: 0.8;
 }
 
 .delete-btn {
-  background-color: #e74c3c; /* red */
-  color: white;
+  background-color: #f5c16c; /* Wheat color */
+  color: #0d47a1;
 }
 
-.delete-btn:hover {
-  opacity: 0.8;
-}
-
-/* Responsive styles (keep as is or you want me to recolor?) */
-
-/* Small devices */
 @media (max-width: 600px) {
-  body {
-    padding: 10px;
-  }
-
   .box {
-    padding: 15px;
+    padding: 20px;
     margin: 10px;
   }
 
   form input,
   button {
     font-size: 0.9rem;
-    padding: 8px;
-  }
-
-  .table-wrapper {
-    margin-top: 12px;
-  }
-
-  table {
-    font-size: 0.8rem;
-  }
-
-  th, td {
-    padding: 6px 4px;
-  }
-}
-
-/* Medium devices */
-@media (min-width: 601px) and (max-width: 900px) {
-  .box {
-    max-width: 450px;
-    padding: 25px;
-  }
-
-  form input,
-  button {
-    font-size: 1rem;
     padding: 10px;
   }
 
   table {
-    font-size: 0.9rem;
-  }
-
-  th, td {
-    padding: 10px;
-  }
-}
-
-/* Large devices */
-@media (min-width: 901px) {
-  .box {
-    max-width: 500px;
-    padding: 30px;
-  }
-
-  form input,
-  button {
-    font-size: 1rem;
-    padding: 10px;
-  }
-
-  table {
-    font-size: 1rem;
-  }
-
-  th, td {
-    padding: 12px;
-  }
-}
-
-/* Extra small devices */
-@media (max-width: 320px) {
-  body {
-    padding: 8px;
-  }
-
-  .box {
-    max-width: 100%;
-    margin: 8px auto;
-    padding: 15px;
-    border-radius: 6px;
-    box-shadow: none;
-  }
-
-  form label {
     font-size: 0.85rem;
   }
 
-  form input {
-    font-size: 0.85rem;
-    padding: 6px;
-  }
-
-  button {
-    font-size: 0.9rem;
-    padding: 8px;
-  }
-
-  table {
-    font-size: 0.75rem;
-    margin: 12px 0;
-  }
-
   th, td {
-    padding: 6px 4px;
+    padding: 10px;
   }
 
   .action-btn {
-    width: 100%;
-    margin-bottom: 5px;
-    padding: 6px;
     font-size: 0.8rem;
+    padding: 6px;
   }
 }
 
-</style>
+  </style>
 </head>
 <body>
 
@@ -274,8 +169,8 @@ th {
       <input type="email" id="email" placeholder="Email" required />
       <br><br>
 
-      <label for="password">Password:</label>
-      <input type="password" id="password" placeholder="Password" required />
+      <label for="city">City:</label>
+      <input type="text" id="city" placeholder="city" required />
       <br><br>
 
       <button type="submit">Submit</button>
@@ -289,7 +184,7 @@ th {
           <th>First Name</th>
           <th>Last Name</th>
           <th>Email</th>
-          <th>Password</th>
+          <th>City</th>
           <th>Actions</th>
         </tr>
       </thead>
@@ -309,14 +204,14 @@ th {
       const fname = document.getElementById('fname').value.trim();
       const lname = document.getElementById('lname').value.trim();
       const email = document.getElementById('email').value.trim();
-      const password = document.getElementById('password').value;
+      const city = document.getElementById('city').value;
 
-      if (!fname || !lname || !email || !password) {
+      if (!fname || !lname || !email || !city) {
         alert("All fields are required!");
         return;
       }
 
-      const userData = { fname, lname, email, password };
+      const userData = { fname, lname, email,city };
 
       if (editIndex !== null) {
         users[editIndex] = userData;
@@ -337,7 +232,7 @@ th {
           <td>${user.fname}</td>
           <td>${user.lname}</td>
           <td>${user.email}</td>
-          <td>${user.password}</td>
+          <td>${user.city}</td>
           <td>
             <button class="action-btn edit-btn" onclick="editData(${index})">Edit</button>
             <button class="action-btn delete-btn" onclick="deleteData(${index})">Delete</button>
@@ -352,7 +247,7 @@ th {
       document.getElementById('fname').value = user.fname;
       document.getElementById('lname').value = user.lname;
       document.getElementById('email').value = user.email;
-      document.getElementById('password').value = user.password;
+      document.getElementById('city').value = user.city;
       editIndex = index;
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
